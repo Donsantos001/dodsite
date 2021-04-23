@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Headlines;
+use App\News;
+use App\Events;
+use App\Article;
 
 class HomeController extends Controller
 {
@@ -16,8 +19,18 @@ class HomeController extends Controller
     public function index()
     {
         $headlines = Headlines::all();
+        $news = News::paginate(4);
+        $events = Events::paginate(3);
+        $articles = DB::table('articles')->orderBy('created_at', 'desc')->take(5)->get();
+        $mostviewed = DB::table('articles')->orderBy('views', 'desc')->take(5)->get();
 
-        return view('site.home', ['headlines' => $headlines]);
+        return view('site.home', [
+            'headlines' => $headlines,
+            'news' => $news,
+            'events' => $events,
+            'articles' => $articles,
+            'mostviewed' => $mostviewed
+            ]);
     }
 
     /**

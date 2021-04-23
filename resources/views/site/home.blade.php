@@ -73,7 +73,7 @@
                 <div class="news-main-con">
                     <div class="news-main px-2">
                         
-                        @for ($i = 0; $i < 4; $i++)
+                        @foreach ($news as $newsdata)
                             <div class="news-con p-2">
                                 <div class="flex flex-col md:flex-row">
                                     <div class="md:w-1/2 p-2">
@@ -85,28 +85,33 @@
                                     <div class="md:w-1/2 p-2">
                                         <div class="news-det">
                                             <p class="news-det-title text-xl">
-                                                Lorem ipsum dolor sit, amet consectetur adipisicing.
+                                                {{ $newsdata->headline }}
                                             </p>
-                                            <p class="py-2 text-sm"><span class="rounded-full p-1 bg-red-600 text-white">BUSINESS MONEY</span> <span>12 May 1996(83382)</span></p>
+                                            <p class="py-2 text-sm">
+                                                <span class="rounded-full p-1 bg-red-600 text-white">{{ $newsdata->category }}</span>
+                                                <span>{{ date( "Y-m-d", strtotime($newsdata->created_at)) }}</span>
+                                            </p>
                                             <p class="text-sm">
-                                                Lorem ipsum dolor sit amet consectetur 
-                                                adipisicing elit. Aut minima expliimages/cabo 
-                                                earum beatae corrupti eligendi ex ea 
-                                                itaque quod, repudiandae libero non,
-                                                adipisci eum enim expedita.
-                                                Similique quis qui illum.
+                                                {{ Illuminate\Support\Str::limit($newsdata->body, 400, '...') }}
                                             </p>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        @endfor
+                        @endforeach
                         
                     </div>
         
-                    <div class="news-view-more">
-                        <div class="fa fa-angle-down d-inline"></div>
-                        <div class="d-inline">View More</div>
+                    <div class="flex flex-row justify-center p-3 mt-3">
+                        {{ $news->links() }}
+                    </div>
+
+                    <div class="justify-center">
+                        <div class="w-fit mx-auto p-2 mb-2">
+                            <a href="{{ URL::route('site.events') }}" class="mx-auto p-2 rounded-lg font-bold items-center justify-center hover:bg-gray-300 hover:text-red-500 text-white bg-red-500">
+                                <span> VIEW MORE </span>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -155,7 +160,7 @@
             <div class="lg:order-3 row-span-3 2xl:row-span-3 lg:col-span-1 rounded-lg shadow-2xl mb-5 lg:mb-0">
                 <div class="">
                     <div class="flex flex-col">
-                        <div class="news-main-con rounded-lg shadow-2xl overflow-hidden">
+                        <div class="news-main-con">
                             <div class="add-title bg-red-600 p-3">
                                 <p class="text-white text-lg">VIDEO</p>
                             </div>
@@ -247,42 +252,36 @@
 
                 <div class="news-main-con">
                     <div class="news-main px-2">
-                        @for ($i = 0; $i < 3; $i++)
+                        @foreach ($events as $event)
                             <div class="news-con p-2">
                                 <div class="flex flex-col md:flex-row">
                                     <div class="md:w-1/2 p-2">
                                         <div class="news-img">
                                         {!! HTML::image('images/picture3.png') !!}
                                         </div>
-                                        <p class="text-right text-sm">12 May 1996(83382)</p>
+                                        <p class="text-right text-sm">{{ date( "Y-m-d", strtotime($event->created_at)).'('.$event->views.')'  }}</p>
                                     </div>
             
                                     <div class="md:w-1/2 p-2">
                                         <div class="news-det p-2">
                                             <p class="news-det-title text-xl">
-                                                Lorem ipsum dolor sit, amet consectetur adipisicing.
+                                                {{ $event->headline }}
                                             </p>
-                                            <p class="py-1"><span class="rounded-full p-1 bg-red-600 text-white">THEATRE</span></p>
-                                            <p class="text-red-600 text-xs">Event : <span>{{ '22-02-20' }}</span></p>
-                                            <p class="text-red-600 text-xs">Venue : <span>{{ '6, Autumn Conference Zone' }}</span></p>
+                                            <p class="py-1"><span class="rounded-full p-1 bg-red-600 text-white">{{ $event->category }}</span></p>
+                                            <p class="text-red-600 text-xs">Event : <span>{{ $event->date }}</span></p>
+                                            <p class="text-red-600 text-xs">Venue : <span>{{ $event->venue }}</span></p>
                                             <p class="text-sm">
-                                                Lorem ipsum dolor sit amet consectetur 
-                                                adipisicing elit. Aut minima expliimages/cabo 
-                                                earum beatae corrupti eligendi ex ea 
-                                                itaque quod, repudiandae libero non,
-                                                adipisci eum enim expedita.
-                                                Similique quis qui illum.
+                                                {{ Illuminate\Support\Str::limit($event->body, 300, '...') }}
                                             </p>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        @endfor
+                        @endforeach
                     </div>
         
-                    <div class="news-view-more">
-                        <div class="fa fa-angle-down d-inline"></div>
-                        <div class="d-inline">View More</div>
+                    <div class="flex flex-row justify-center p-3 mt-3">
+                        {{ $news->links() }}
                     </div>
                 </div>
             </div>
@@ -522,31 +521,27 @@
 
         <div class="news-preview-con max-w-screen-2xl lg:mx-auto p-4">
             <div class="news-preview-inner-con flex flex-wrap rounded-lg shadow-xl">
-                @for ($i = 0; $i < 5; $i++)
+                @foreach ($articles as $article)
                     <div class="news-con p-2 lg:w-1/5 mx-auto md:w-1/3">
                         <div class="flex flex-col">
                             <div class="p-2">
                                 <div class="news-img">
-                                {!! HTML::image('images/picture9.png') !!}
+                                    {!! HTML::image('images/picture9.png') !!}
                                 </div>
-                                <p class="text-sm">12 May 1996(83382)</p>
+                                <p class="text-sm">{{ date( "Y-m-d", strtotime($article->created_at)) }}</p>
                             </div>
 
                             <div class="p-2">
                                 <div class="news-det">
-                                    <p class="text-lg">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+                                    <p class="text-lg">{{ $article->headline }}</p>
                                     <p class="mt-2 text-sm">
-                                        Lorem ipsum dolor sit amet consectetur 
-                                        adipisicing elit. Aut minima explicabo 
-                                        earum beatae corrupti eligendi ex ea 
-                                        Lorem ipsum dolor sit amet consectetur 
-                                        adipisicing.
+                                        {{ Illuminate\Support\Str::limit($article->body, 200, '...') }}
                                     </p>
                                 </div>
                             </div>
                         </div>
                     </div>
-                @endfor
+                @endforeach
             </div>
         </div>
     </section>
@@ -559,14 +554,14 @@
 
 <section class="business-s" id="directory">
     <div class="flex flex-col lg:grid lg:gap-4 2xl:gap-6 lg:grid-cols-3 2xl:row-span-1 2xl:pb-8 pt-4 px-3 h-full max-w-screen-2xl lg:mx-auto">
-        <div class="lg:order-1 lg:row-span-1 2xl:row-span-1 h-full lg:col-span-1 rounded-lg overflow-hidden shadow-2xl mb-5 lg:mb-0">
+        <div class="lg:order-1 lg:row-span-1 2xl:row-span-1 h-full lg:col-span-1 mb-5 lg:mb-0">
             <div class="max-w-screen-2xl lg:mx-auto lg:mt-3">
                 <div class="sect-title bg-red-600 text-white px-3 py-2 ml-8 mr-auto w-5/12 lg:w-80 rounded-t-xl">
                     <p>OUR PARTNERS</p>
                 </div>
             </div>
 
-            <div class="partners-con flex flex-wrap rounded-lg shadow-xl p-3">
+            <div class="partners-con flex flex-wrap rounded-lg overflow-hidden shadow-2xl p-3">
                 @for ($i = 11; $i < 15; $i++)
                     <div class="partners-img-con mx-auto py-9 border-gray-500 border-solid rounded-2xl border-2 mb-2">
                         {!! HTML::image("images/picture".$i.".png") !!}
@@ -590,7 +585,7 @@
             </div>
         </div>
 
-        <div class="lg:order-2 lg:row-span-1 2xl:row-span-1 h-full lg:col-span-2 rounded-lg overflow-hidden shadow-2xl mb-5 lg:mb-0">
+        <div class="lg:order-2 lg:row-span-1 2xl:row-span-1 h-full lg:col-span-2 mb-5 lg:mb-0 rounded-lg overflow-hidden shadow-2xl ">
              <div class="max-w-screen-2xl lg:mx-auto lg:mt-3">
                 <div class="sect-title bg-red-600 text-white px-3 py-2 ml-8 mr-auto w-5/12 lg:w-80 rounded-t-xl">
                     <p>BUSINESS DIRECTORY</p>
@@ -623,7 +618,7 @@
 
     <div class="news-preview-con max-w-screen-2xl lg:mx-auto p-4">
         <div class="news-preview-inner-con flex flex-wrap rounded-lg shadow-xl">
-            @for ($i = 0; $i < 5; $i++)
+            @foreach ($mostviewed as $mostview)
                 <div class="news-con p-2 lg:w-1/5 mx-auto md:w-1/3">
                     <div class="flex flex-col">
                         <div class="p-2">
@@ -634,19 +629,16 @@
 
                         <div class="p-2">
                             <div class="news-det">
-                                <p class="my-2 text-sm">MAY 18 2027(93232)</p>
-                                <p class="text-lg">Lorem ipsum dolor sit amet consectetur adipisicing.</p>
+                                <p class="my-2 text-sm">{{ date( "Y-m-d", strtotime($mostview->created_at)) }}</p>
+                                <p class="text-lg">{{ $mostview->headline }}</p>
                                 <p class="my-2 text-sm">
-                                    Lorem ipsum dolor sit amet consectetur 
-                                    adipisicing elit. Aut minima explicabo 
-                                    earum beatae corrupti eligendi ex ea Lorem, 
-                                    ipsum dolor.
+                                    {{ Illuminate\Support\Str::limit($mostview->body, 200, '...') }}
                                 </p>
                             </div>
                         </div>
                     </div>
                 </div>
-            @endfor
+            @endforeach
         </div>
     </div>
 </section>

@@ -27,7 +27,7 @@
     integrity="sha256-x8PYmLKD83R9T/sYmJn1j3is/chhJdySyhet/JuHnfY=" crossorigin="anonymous" />
 
     <nav class="flex items-center bg-black py-3 pr-2 lg:py-0 flex-wrap">
-      <a href="#" class="mr-4 inline-flex items-center">
+      <a href="{{ URL::route('site.home') }}" class="mr-4 inline-flex items-center">
         <span class="tracking-wide">
           <div class="dod-img-con overflow-hidden rounded-r-full h-16 w-48 p-0">
            {!! HTML::image('images/dod.png') !!}

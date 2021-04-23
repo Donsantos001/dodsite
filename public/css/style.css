@@ -12,6 +12,10 @@ html, body {
         right: 25px;
         width: fit-content;
     }
+
+    .w-fit {
+      width: fit-content;
+    }
   
     .header-s img, .news-s img, .dir-card-bottom img, .dir-cards-con-bottom img, .decoration img, nav img{
         width: 100%;
@@ -35,6 +39,9 @@ html, body {
       margin: auto;
     }
   
+    div .swiper-pagination .swiper-pagination-bullet-active {
+      background-color: #e53e3e;
+    }
   /* navigation 
    - show navigation always on the large screen devices with (min-width:1024)
   */
