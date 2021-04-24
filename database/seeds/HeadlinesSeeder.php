@@ -13,17 +13,6 @@ class HeadlinesSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('headlines')->truncate();
-
-        $faker = \Faker\Factory::create();
-
-        foreach(range(1, 4) as $index){
-            Headlines::create([
-                'headline' => $faker->sentence(10, true),
-                'body' => $faker->sentence(26, true),
-                'created_at' => now(),
-                'image' => $faker->name
-            ]);
-        }
+        $headlines = factory(App\Headlines::class, 4)->create();
     }
 }
