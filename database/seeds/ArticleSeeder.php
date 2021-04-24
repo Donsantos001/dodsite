@@ -13,6 +13,8 @@ class ArticleSeeder extends Seeder
      */
     public function run()
     {
-        $article = factory(App\Article::class, 23)->create();
+        Article::truncate();
+
+        $article = factory(Article::class, 23)->create();
     }
 }

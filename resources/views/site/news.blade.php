@@ -49,7 +49,7 @@
                                 <div class="flex flex-col md:flex-row">
                                     <div class="md:w-1/2 p-2">
                                         <div class="news-img">
-                                            {!! HTML::image('images/picture3.png') !!}
+                                            <img src="{{ asset('images/picture3.png') }}" />
                                         </div>
                                     </div>
             
@@ -87,7 +87,7 @@
             <div class="flex flex-col lg:grid lg:gap-4 2xl:gap-6 lg:grid-cols-1 2xl:row-span-5 pt-4 h-full max-w-screen-2xl lg:mx-auto">
                 <div class="lg:order-1 lg:row-span-1 2xl:row-span-1 lg:col-span-1 mb-5 lg:mb-0">
                     <div class="ad-img-con rounded-lg shadow-2xl overflow-hidden h-full">
-                        {!! HTML::image('images/picture.png') !!}
+                        <img src="{{ asset('images/picture.png') }}" />
                     </div>
                 </div>
 
@@ -161,7 +161,7 @@
 
                 <div class="bg-gray-900 lg:order-4 row-span-1 2xl:row-span-1 lg:col-span-1 rounded-lg shadow-2xl overflow-hidden mb-5 lg:mb-0">
                     <div class="news-ad-img-con h-full">
-                        {!! HTML::image('images/picture5.png') !!}
+                        <img src="{{ asset('images/picture5.png') }}" />
                     </div>
                 </div>
             </div>
@@ -188,7 +188,7 @@
                 <div class="flex flex-col">
                     <div class="p-2">
                         <div class="news-img">
-                        {!! HTML::image('images/update3.jpg') !!}
+                            <img src="{{ asset('images/update3.jpg') }}" />
                         </div>
                     </div>
 
@@ -313,27 +313,27 @@
         <div class="partners flex flex-wrap rounded-lg shadow-2xl p-4">
             @for ($i = 11; $i < 15; $i++)
                 <div class="partners-img-con mx-auto py-9 border-gray-500 border-solid rounded-2xl border-2 mb-2">
-                    {!! HTML::image("images/picture".$i.".png") !!}
+                    <img src="{{ asset('images/picture'.$i.'.png') }}" />
                 </div>
             @endfor
             @for ($i = 11; $i < 15; $i++)
                 <div class="partners-img-con mx-auto py-9 border-gray-500 border-solid rounded-2xl border-2 mb-2">
-                    {!! HTML::image("images/picture".$i.".png") !!}
+                    <img src="{{ asset('images/picture'.$i.'.png') }}" />
                 </div>
             @endfor
             @for ($i = 11; $i < 15; $i++)
                 <div class="partners-img-con mx-auto py-9 border-gray-500 border-solid rounded-2xl border-2 mb-2">
-                    {!! HTML::image("images/picture".$i.".png") !!}
+                    <img src="{{ asset('images/picture'.$i.'.png') }}" />
                 </div>
             @endfor
             @for ($i = 11; $i < 15; $i++)
                 <div class="partners-img-con mx-auto py-9 border-gray-500 border-solid rounded-2xl border-2 mb-2">
-                    {!! HTML::image("images/picture".$i.".png") !!}
+                    <img src="{{ asset('images/picture'.$i.'.png') }}" />
                 </div>
             @endfor
             @for ($i = 11; $i < 13; $i++)
                 <div class="partners-img-con mx-auto py-9 border-gray-500 border-solid rounded-2xl border-2 mb-2">
-                    {!! HTML::image("images/picture".$i.".png") !!}
+                    <img src="{{ asset('images/picture'.$i.'.png') }}" />
                 </div>
             @endfor
         </div>

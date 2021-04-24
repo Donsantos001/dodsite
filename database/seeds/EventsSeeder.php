@@ -13,10 +13,8 @@ class EventsSeeder extends Seeder
      */
     public function run()
     {
-        $events = factory(App\Events::class, 23)->create();
+        Events::truncate();
 
-        // Make call to application...
-    
-        // $this->assertDeleted($events);
+        $events = factory(Events::class, 23)->create();
     }
 }

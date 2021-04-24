@@ -13,6 +13,8 @@ class HeadlinesSeeder extends Seeder
      */
     public function run()
     {
-        $headlines = factory(App\Headlines::class, 4)->create();
+        Headlines::truncate();
+
+        $headlines = factory(Headlines::class, 3)->create();
     }
 }
