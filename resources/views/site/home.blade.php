@@ -25,7 +25,7 @@
                                     <p class="text-sm">{{ Str::limit($headline->body, 300, '...') }}</p>
                                 </div>
                                 <div class="ad-img-con">
-                                    <img src="{!! asset('images/picture'.$hPicId.'.png') !!}" />
+                                    <img src="{{ asset('images/Picture'.$hPicId.'.png') }}" />
                                 </div>
                             </div>
                         </div>
@@ -46,7 +46,7 @@
 
         <div class="lg:order-2 lg:row-span-1 2xl:row-span-1 lg:col-span-1 rounded-lg shadow-2xl mb-5 lg:mb-0">
           <div class="ad-img-con rounded-lg shadow-xl overflow-hidden h-full">
-            <img src="{!! asset('images/picture2.png') !!}" />
+            <img src="{{ asset('images/Picture2.png') }}" />
           </div>
         </div>
       </div>
@@ -78,7 +78,7 @@
                                 <div class="flex flex-col md:flex-row">
                                     <div class="md:w-1/2 p-2">
                                         <div class="news-img">
-                                            <img src="{{ asset('images/picture3.png') }}" />
+                                            <img src="{{ asset('images/Picture3.png') }}" />
                                         </div>
                                     </div>
             
@@ -257,7 +257,7 @@
                                 <div class="flex flex-col md:flex-row">
                                     <div class="md:w-1/2 p-2">
                                         <div class="news-img">
-                                            <img src="{{ asset('images/picture3.png') }}" />
+                                            <img src="{{ asset('images/Picture3.png') }}" />
                                         </div>
                                         <p class="text-right text-sm">{{ date( "Y-m-d", strtotime($event->created_at)).'('.$event->views.')'  }}</p>
                                     </div>
@@ -292,7 +292,7 @@
             <!-- Beginning of the component about Jonathan Walters -->
             <div class="bg-gray-900 lg:order-5 row-span-2 2xl:row-span-2 lg:col-span-1 rounded-lg shadow-2xl overflow-hidden mb-5 lg:mb-0">
                 <div class="news-ad-img-con h-full">
-                    <img src="{{ asset('images/picture5.png') }}" />
+                    <img src="{{ asset('images/Picture5.png') }}" />
                 </div>
             </div>
             <!-- Ending of the component about Jonathan Walters -->
@@ -526,7 +526,7 @@
                         <div class="flex flex-col">
                             <div class="p-2">
                                 <div class="news-img">
-                                    <img src="{{ asset('images/picture9.png') }}" />
+                                    <img src="{{ asset('images/Picture9.png') }}" />
                                 </div>
                                 <p class="text-sm">{{ date( "Y-m-d", strtotime($article->created_at)) }}</p>
                             </div>
@@ -564,22 +564,22 @@
             <div class="partners-con flex flex-wrap rounded-lg overflow-hidden shadow-2xl p-3">
                 @for ($i = 11; $i < 15; $i++)
                     <div class="partners-img-con mx-auto py-9 border-gray-500 border-solid rounded-2xl border-2 mb-2">
-                        <img src="{{ asset('images/picture'.$i.'.png') }}" />
+                        <img src="{{ asset('images/Picture'.$i.'.png') }}" />
                     </div>
                 @endfor
                 @for ($i = 11; $i < 15; $i++)
                     <div class="partners-img-con mx-auto py-9 border-gray-500 border-solid rounded-2xl border-2 mb-2">
-                        <img src="{{ asset('images/picture'.$i.'.png') }}" />
+                        <img src="{{ asset('images/Picture'.$i.'.png') }}" />
                     </div>
                 @endfor
                 @for ($i = 11; $i < 15; $i++)
                     <div class="partners-img-con mx-auto py-9 border-gray-500 border-solid rounded-2xl border-2 mb-2">
-                        <img src="{{ asset('images/picture'.$i.'.png') }}" />
+                        <img src="{{ asset('images/Picture'.$i.'.png') }}" />
                     </div>
                 @endfor
                 @for ($i = 11; $i < 14; $i++)
                     <div class="partners-img-con mx-auto py-9 border-gray-500 border-solid rounded-2xl border-2 mb-2">
-                        <img src="{{ asset('images/picture'.$i.'.png') }}" />
+                        <img src="{{ asset('images/Picture'.$i.'.png') }}" />
                     </div>
                 @endfor
             </div>
@@ -623,7 +623,7 @@
                     <div class="flex flex-col">
                         <div class="p-2">
                             <div class="news-img">
-                                <img src="{{ asset('images/picture10.png') }}" />
+                                <img src="{{ asset('images/Picture10.png') }}" />
                             </div>
                         </div>
 
@@ -642,5 +642,5 @@
         </div>
     </div>
 </section>
-<img src="{{ asset('images/picture'.$i.'.png') }}" />
+<img src="{{ asset('images/Picture'.$i.'.png') }}" />
 @endsection
