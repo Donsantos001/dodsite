@@ -25,7 +25,7 @@
                                     <p class="text-sm">{{ Str::limit($headline->body, 300, '...') }}</p>
                                 </div>
                                 <div class="ad-img-con">
-                                    <img src="{{ asset('images/picture'.$hPicId.'.png') }}" />
+                                    <img src="{!! asset('images/picture'.$hPicId.'.png') !!}" />
                                 </div>
                             </div>
                         </div>
@@ -46,7 +46,7 @@
 
         <div class="lg:order-2 lg:row-span-1 2xl:row-span-1 lg:col-span-1 rounded-lg shadow-2xl mb-5 lg:mb-0">
           <div class="ad-img-con rounded-lg shadow-xl overflow-hidden h-full">
-            <img src="{{ asset('images/picture2.png') }}" />
+            <img src="{!! asset('images/picture2.png') !!}" />
           </div>
         </div>
       </div>
