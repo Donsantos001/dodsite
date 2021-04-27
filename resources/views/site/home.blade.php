@@ -75,28 +75,30 @@
                         
                         @foreach ($news as $newsdata)
                             <div class="news-con p-2">
-                                <div class="flex flex-col md:flex-row">
-                                    <div class="md:w-1/2 p-2">
-                                        <div class="news-img">
-                                            <img src="{{ asset('images/Picture3.png') }}" />
+                                <a href="{{ URL::route('site.newsdetail', $newsdata->id) }}">
+                                    <div class="flex flex-col md:flex-row hover:shadow-xl border-4 hover:border-opacity-30 border-white hover:border-red-500">
+                                        <div class="md:w-1/2 p-2">
+                                            <div class="news-img">
+                                                <img src="{{ asset('images/Picture3.png') }}" />
+                                            </div>
+                                        </div>
+                
+                                        <div class="md:w-1/2 p-2">
+                                            <div class="news-det">
+                                                <p class="news-det-title text-xl">
+                                                    {{ $newsdata->headline }}
+                                                </p>
+                                                <p class="py-2 text-sm">
+                                                    <span class="rounded-full p-1 bg-red-600 text-white">{{ $newsdata->category }}</span>
+                                                    <span>{{ date( "d F Y", strtotime($newsdata->created_at)) }}</span>
+                                                </p>
+                                                <p class="text-sm">
+                                                    {{ Illuminate\Support\Str::limit($newsdata->body, 400, '...') }}
+                                                </p>
+                                            </div>
                                         </div>
                                     </div>
-            
-                                    <div class="md:w-1/2 p-2">
-                                        <div class="news-det">
-                                            <p class="news-det-title text-xl">
-                                                {{ $newsdata->headline }}
-                                            </p>
-                                            <p class="py-2 text-sm">
-                                                <span class="rounded-full p-1 bg-red-600 text-white">{{ $newsdata->category }}</span>
-                                                <span>{{ date( "Y-m-d", strtotime($newsdata->created_at)) }}</span>
-                                            </p>
-                                            <p class="text-sm">
-                                                {{ Illuminate\Support\Str::limit($newsdata->body, 400, '...') }}
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
+                                </a>
                             </div>
                         @endforeach
                         
@@ -122,9 +124,9 @@
 
              <!-- Beginning of the component about Jonathan Walters -->
              <div class="lg:order-2 row-span-2 2xl:row-span-2 lg:col-span-1 rounded-lg shadow-2xl overflow-hidden mb-5 lg:mb-0">
-                 <div class="add-title bg-red-600 p-3">
-                     <p class="text-white text-lg">ADD TO DAY OF DUBAI</p>
-                 </div>
+                <div class="add-title bg-red-600 p-3">
+                    <p class="text-white text-lg">ADD TO DAY OF DUBAI</p>
+                </div>
 
                 <div class="news-ad-img-con h-full flex flex-col justify-around">
                     <div class="flex flex-row md:flex-col justify-around md:pb-8">
@@ -160,7 +162,7 @@
             <div class="lg:order-3 row-span-3 2xl:row-span-3 lg:col-span-1 rounded-lg shadow-2xl mb-5 lg:mb-0">
                 <div class="">
                     <div class="flex flex-col">
-                        <div class="news-main-con">
+                        <div class="news-main-con rounded-t-xl overflow-hidden">
                             <div class="add-title bg-red-600 p-3">
                                 <p class="text-white text-lg">VIDEO</p>
                             </div>
@@ -229,9 +231,10 @@
                             </div>
         
         
-                            <div class="news-view-more">
-                                <div class="fa fa-angle-down d-inline"></div>
-                                <div class="d-inline">View More</div>
+                            <div class="news-view-more p-3">
+                                <div class="text-white bg-red-500 hover:bg-red-700 px-1 rounded-lg w-fit ml-auto cursor-pointer">
+                                    <p>View More</p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -259,7 +262,7 @@
                                         <div class="news-img">
                                             <img src="{{ asset('images/Picture3.png') }}" />
                                         </div>
-                                        <p class="text-right text-sm">{{ date( "Y-m-d", strtotime($event->created_at)).'('.$event->views.')'  }}</p>
+                                        <p class="text-right text-sm">{{ date( "d F Y", strtotime($event->created_at)).'('.$event->views.')'  }}</p>
                                     </div>
             
                                     <div class="md:w-1/2 p-2">
@@ -268,7 +271,7 @@
                                                 {{ $event->headline }}
                                             </p>
                                             <p class="py-1"><span class="rounded-full p-1 bg-red-600 text-white">{{ $event->category }}</span></p>
-                                            <p class="text-red-600 text-xs">Event : <span>{{ $event->date }}</span></p>
+                                            <p class="text-red-600 text-xs">Event : <span>{{  date( "d-m-Y", strtotime($event->date)) }}</span></p>
                                             <p class="text-red-600 text-xs">Venue : <span>{{ $event->venue }}</span></p>
                                             <p class="text-sm">
                                                 {{ Illuminate\Support\Str::limit($event->body, 300, '...') }}
@@ -528,7 +531,7 @@
                                 <div class="news-img">
                                     <img src="{{ asset('images/Picture9.png') }}" />
                                 </div>
-                                <p class="text-sm">{{ date( "Y-m-d", strtotime($article->created_at)) }}</p>
+                                <p class="text-sm">{{ date( "d F Y", strtotime($article->created_at)) }}</p>
                             </div>
 
                             <div class="p-2">
@@ -609,7 +612,7 @@
 
 @section('most-viewed')
 
-<section class="news-preview-s">
+<section class="most-viewed-s">
     <div class="max-w-screen-2xl lg:mx-auto lg:mt-3">
         <div class="sect-title bg-red-600 text-white px-3 py-2 ml-8 mr-auto w-5/12 lg:w-80 rounded-t-xl">
             <p>MOST VIEWED</p>
@@ -629,7 +632,7 @@
 
                         <div class="p-2">
                             <div class="news-det">
-                                <p class="my-2 text-sm">{{ date( "Y-m-d", strtotime($mostview->created_at)) }}</p>
+                                <p class="my-2 text-sm">{{ date( "d F Y", strtotime($mostview->created_at)) }}</p>
                                 <p class="text-lg">{{ $mostview->headline }}</p>
                                 <p class="my-2 text-sm">
                                     {{ Illuminate\Support\Str::limit($mostview->body, 200, '...') }}

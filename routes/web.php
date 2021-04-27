@@ -16,13 +16,9 @@ use App\Http\Controllers\HomeController;
 
 Route::get('/', 'HomeController@index')->name('site.home');
 
-Route::get('/news', function() {
-    return view('site.news');
-})->name('site.news');
+Route::get('/news', 'NewsController@index')->name('site.news');
 
-Route::get('/newsdetails', function() {
-    return view('site.newsdetail');
-})->name('site.newsdetail');
+Route::get('/newsdetails/{id?}', 'NewsController@details')->name('site.newsdetail');
 
 Route::get('/article', function() {
     return view('site.article');
