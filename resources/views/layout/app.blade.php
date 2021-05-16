@@ -19,6 +19,9 @@
 
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+
+    {!! HTML::style('css/app.css') !!}
+    {!! HTML::style('css/style.css') !!}
 </head>
 
 <body>
