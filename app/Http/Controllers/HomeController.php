@@ -24,6 +24,9 @@ class HomeController extends Controller
         $articles = DB::table('articles')->orderBy('created_at', 'desc')->take(5)->get();
         $mostviewed = DB::table('articles')->orderBy('views', 'desc')->take(5)->get();
 
+        $thumb = VideoThumbnail::createThumbnail(public_path('videos/clip1.mp4'), public_path("images/"), 'thumb.jpg', 2, 600, 600);
+        VideoThumbnail::createThumbnail(storage_path('videos/clip1.mp4'), storage_path('images/'), '111.jpg', 2, 600, 600);
+        
         return view('site.home', [
             'headlines' => $headlines,
             'news' => $news,
