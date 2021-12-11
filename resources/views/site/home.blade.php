@@ -8,17 +8,18 @@
 
 <!-- header section -->
 <section class="header-s">
-      <div class="flex flex-col lg:grid lg:gap-4 2xl:gap-6 lg:grid-cols-3 2xl:row-span-1 2xl:pb-8 pt-4 px-3 h-full max-w-screen-2xl lg:mx-auto">
+      <div class="flex flex-wrap 2xl:pb-8 pt-4 px-3 h-full max-w-screen-2xl lg:mx-auto">
         <!-- Beginning of the component about Daniel Clifford -->
-        <div class="lg:order-1 lg:row-span-1 2xl:row-span-1 h-full lg:col-span-2 rounded-lg overflow-hidden shadow-2xl mb-5 lg:mb-0">
-          <div class="flex items-center w-100 h-full">
-              <div class="swiper-container w-100 h-full">
+        <div class="h-full lg:w-2/3 w-full overflow-hidden mb-5 lg:mb-0">
+          
+              <div class="">
+                  <div class="swiper-container w-100 h-full">
                   <!-- Additional required wrapper -->
-                  <div class="swiper-wrapper">
+                  <div class="swiper-wrapper flex items-center">
                       <!-- Slides -->
                       <?php $hPicId = 1 ?>
                       @foreach ($headlines as $headline)
-                        <div class="swiper-slide rounded-lg shadow-xl overflow-hidden">
+                        <div class="swiper-slide w-full rounded-lg overflow-hidden">
                             <div class="ad-con">
                                 <div class="ad-text-con p-2 max-w-4xl md:absolute bottom-0 left-0 right-0 w-100 z-10 md:text-white">
                                     <h3 class="text-2xl">{{ $headline->headline }}</h3>
@@ -40,11 +41,11 @@
                   <!-- If we need pagination -->
                   <div class="swiper-pagination"></div>
               </div>
-          </div>
+              </div>
         </div>
 
 
-        <div class="lg:order-2 lg:row-span-1 2xl:row-span-1 lg:col-span-1 rounded-lg shadow-2xl mb-5 lg:mb-0">
+        <div class="lg:w-1/3 w-full mb-5 lg:mb-0 lg:pl-2">
           <div class="ad-img-con rounded-lg shadow-xl overflow-hidden h-full">
             <img src="{{ asset('images/Picture2.png') }}" />
           </div>
