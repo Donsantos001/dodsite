@@ -6,7 +6,7 @@
 
 @section('header')
 
-<!-- header section -->
+<!-- header section start -->
 <section class="header-s">
       <div class="flex flex-wrap 2xl:pb-8 pt-4 px-3 h-full max-w-screen-2xl lg:mx-auto">
         <!-- Beginning of the component about Daniel Clifford -->
@@ -41,6 +41,7 @@
                   <!-- If we need pagination -->
                   <div class="swiper-pagination"></div>
               </div>
+
               </div>
         </div>
 
